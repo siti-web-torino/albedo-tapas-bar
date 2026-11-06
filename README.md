@@ -20,7 +20,7 @@ Per GitHub Pages si può scegliere **Deploy from a branch** in **Settings → Pa
 
 ## Contenuti e immagini
 
-Logo e locandina del Sunday Brunch provengono dagli allegati. I dati del locale, il punteggio e il numero indicativo di recensioni riprendono il brief. Il carosello ne sintetizza i temi e collega alla scheda Google Maps per leggere i commenti originali.
+Logo e locandina del Sunday Brunch provengono dagli allegati. Il punteggio, il numero di recensioni e gli estratti attribuiti nel carosello provengono dalla scheda Google Maps di Albedo, consultata il 6 novembre 2026. Il sito collega alla scheda per leggere i commenti completi.
 
 Le fotografie illustrative sono state generate per il sito e contrassegnate nella pagina. Le scene richieste per gli asset erano un brindisi su una tavola bordeaux, un piatto di crocchette, una ciotola di gazpacho e una coppia di calici di vino e cocktail. Le foto possono essere sostituite conservando i nomi dei file in `assets/` e aggiornando le descrizioni alternative in `index.html`.
 

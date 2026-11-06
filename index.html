@@ -57,6 +57,24 @@
     <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7V5Z"/></symbol>
     <symbol id="i-spark" viewBox="0 0 48 48"><path d="m24 0 3.8 15.5 13.2-8.4-8.3 13.2L48 24l-15.3 3.7L41 41l-13.2-8.3L24 48l-3.7-15.3L7 41l8.4-13.3L0 24l15.4-3.7L7 7l13.3 8.5L24 0Z"/></symbol>
   </svg>
+  <div class="intro" role="dialog" aria-modal="true" aria-label="Benvenuto da Albedo" data-intro hidden>
+    <div class="intro-glow" aria-hidden="true"></div>
+    <svg class="intro-ring" viewBox="0 0 320 320" aria-hidden="true">
+      <defs>
+        <linearGradient id="intro-light" x1="0" x2="1" y1="1" y2="0" gradientUnits="objectBoundingBox">
+          <stop stop-color="#b55770"/><stop offset=".55" stop-color="#fff0bd"/><stop offset="1" stop-color="#f8a8c0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="160" cy="160" r="153" pathLength="100"/>
+    </svg>
+    <div class="intro-brand">
+      <span class="wordmark" role="img" aria-label="Albedo"></span>
+      <span class="eyebrow">Tapas bar · Vanchiglia, Torino</span>
+    </div>
+    <button class="intro-skip" type="button" data-intro-skip>Salta <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  </div>
+
+  <div class="site-stage" data-site-stage>
   <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
   <header class="site-header" id="inizio">
@@ -67,7 +85,7 @@
         <a href="#brunch">Brunch</a>
         <a href="#dove">Dove siamo</a>
       </nav>
-      <a class="header-book inline-flex items-center gap-2" href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener noreferrer">
+      <a class="header-book inline-flex items-center gap-2" data-booking-open href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener noreferrer">
         Prenota <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg>
       </a>
     </div>
@@ -78,13 +96,13 @@
       <div class="frame hero-inner grid">
         <div class="hero-copy">
           <p class="eyebrow hero-kicker"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> TAPAS BAR <span>·</span> VANCHIGLIA, TORINO</p>
-          <h1 class="hero-title" id="hero-title">
+          <h1 class="hero-title" id="hero-title" tabindex="-1">
             <span class="hero-line"><span>Piccoli piatti.</span></span>
             <span class="hero-line hero-line-accent"><em>Grandi serate.</em></span>
           </h1>
           <p class="hero-description">Tapas da passarsi, cocktail da sorseggiare e calici da riempire. Ci trovi a Vanchiglia, a due passi dalla Mole.</p>
           <div class="hero-actions flex flex-wrap items-center gap-3">
-            <a class="button button-pink" data-magnetic href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener noreferrer">
+            <a class="button button-pink" data-magnetic data-booking-open href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener noreferrer">
               <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Prenota su WhatsApp <svg class="icon button-arrow" aria-hidden="true"><use href="#i-up-right"/></svg>
             </a>
             <a class="button button-ghost" data-magnetic href="#esperienza">
@@ -109,7 +127,7 @@
               <use href="#i-spark" x="44" y="44" width="32" height="32"/>
             </svg>
           </div>
-          <figcaption class="image-caption flex justify-between gap-3"><span>FIG. 01 <span aria-hidden="true">/</span> A TAVOLA</span><span>Immagine illustrativa</span></figcaption>
+          <figcaption class="image-caption flex justify-between gap-3"><span>FIG. 01 <span aria-hidden="true">/</span> A TAVOLA</span><span>L’atmosfera di Via Tarino · Vanchiglia</span></figcaption>
         </figure>
       </div>
     </section>
@@ -138,9 +156,9 @@
 
         <div class="filter-list flex flex-wrap items-center gap-2" role="group" aria-label="Filtra l’esperienza" data-filters hidden>
           <button type="button" data-filter="tutto" aria-controls="experience-grid" aria-pressed="true">Tutto</button>
-          <button type="button" data-filter="tapas" aria-controls="experience-grid" aria-pressed="false">Tapas</button>
-          <button type="button" data-filter="drink" aria-controls="experience-grid" aria-pressed="false">Drink &amp; vini</button>
-          <button type="button" data-filter="atmosfera" aria-controls="experience-grid" aria-pressed="false">Atmosfera</button>
+          <button type="button" data-filter="tapas" aria-controls="experience-grid" aria-pressed="false">Dalla Cucina</button>
+          <button type="button" data-filter="drink" aria-controls="experience-grid" aria-pressed="false">Dal Bancone</button>
+          <button type="button" data-filter="atmosfera" aria-controls="experience-grid" aria-pressed="false">Sunday Brunch</button>
         </div>
         <p class="sr-only" aria-live="polite" data-filter-status></p>
 
@@ -184,14 +202,49 @@
               <h3>Sunday<br><em>brunch.</em></h3>
               <p class="brunch-time">11:30 – 15:00</p>
               <p>La domenica ci si siede a tavola già da tarda mattina.</p>
-              <a class="inline-link" href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20per%20il%20brunch%20di%20domenica." target="_blank" rel="noopener noreferrer">Prenota il brunch <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a>
+              <a class="inline-link" data-booking-open="brunch" href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20per%20il%20brunch%20di%20domenica." target="_blank" rel="noopener noreferrer">Prenota il brunch <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a>
             </div>
             <figure class="brunch-poster">
               <img src="./assets/sunday-brunch.jpg" width="700" height="885" loading="lazy" decoding="async" alt="Locandina di Albedo in bordeaux e rosa con illustrazioni di un toast e una ciotola. Sunday Brunch ogni domenica dalle 11:30 alle 15:00.">
             </figure>
           </article>
         </div>
-        <p class="asset-note">Le immagini di piatti e drink sono illustrative.</p>
+        <section class="menu-preview" id="menu" aria-labelledby="menu-title">
+          <div class="menu-heading">
+            <p class="eyebrow"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> DALLA CARTA</p>
+            <h3 id="menu-title">Cosa trovi <em>da Albedo.</em></h3>
+            <p>Un assaggio di quello che portiamo al tavolo e al bancone.</p>
+          </div>
+          <div class="menu-tabs" role="tablist" aria-label="Categorie della carta" data-menu-tabs hidden>
+            <button id="tab-tapas" type="button" role="tab" aria-controls="menu-tapas" aria-selected="true">Tapas &amp; Piattini</button>
+            <button id="tab-drink" type="button" role="tab" aria-controls="menu-drink" aria-selected="false" tabindex="-1">Drink &amp; Calici</button>
+            <button id="tab-brunch" type="button" role="tab" aria-controls="menu-brunch" aria-selected="false" tabindex="-1">Sunday Brunch <span>11:30–15:00</span></button>
+          </div>
+          <div class="menu-panel" id="menu-tapas" role="tabpanel" aria-labelledby="tab-tapas" tabindex="0">
+            <h4 class="sr-only">Tapas e piattini</h4>
+            <dl class="menu-list">
+              <div><dt>Il nostro gazpacho</dt><dd>Un piattino fresco da cui cominciare.</dd></div>
+              <div><dt>Crocchette dorate e sfizi caldi</dt><dd>Da mettere al centro appena arrivano.</dd></div>
+              <div><dt>Tapas creative del giorno</dt><dd>Chiedici cosa c’è oggi in cucina.</dd></div>
+              <div><dt>Dolci fatti in casa</dt><dd>Per chiudere con qualcosa di dolce.</dd></div>
+            </dl>
+          </div>
+          <div class="menu-panel" id="menu-drink" role="tabpanel" aria-labelledby="tab-drink" tabindex="0">
+            <h4 class="sr-only">Drink e calici</h4>
+            <dl class="menu-list">
+              <div><dt>Signature cocktail</dt><dd>Le miscelazioni della casa, anche da abbinare alle tapas.</dd></div>
+              <div><dt>Vini al calice e in bottiglia</dt><dd>Fatti consigliare un calice al bancone.</dd></div>
+            </dl>
+          </div>
+          <div class="menu-panel" id="menu-brunch" role="tabpanel" aria-labelledby="tab-brunch" tabindex="0">
+            <h4 class="sr-only">Sunday Brunch</h4>
+            <dl class="menu-list">
+              <div><dt>Toast e proposte salate</dt><dd>Il brunch di Albedo, ogni domenica dalle 11:30 alle 15:00.</dd></div>
+              <div><dt>Piattini e dolci della casa</dt><dd>Chiedici le proposte della domenica.</dd></div>
+            </dl>
+          </div>
+          <p class="menu-note"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> I fuori menu della settimana? Chiedili direttamente al bancone.</p>
+        </section>
       </div>
     </section>
 
@@ -205,28 +258,29 @@
               <span class="rating-value" data-rating aria-hidden="true">5,0</span><span class="rating-max" aria-hidden="true">/ 5</span>
               <span class="sr-only">5 su 5 stelle</span>
             </div>
-            <div class="rating-label flex flex-wrap items-center gap-3"><span aria-hidden="true">★★★★★</span><span>43+ recensioni su Google</span></div>
-            <a class="inline-link" href="https://www.google.com/maps/search/?api=1&amp;query=Albedo%20Tapas%20Bar%2C%20Via%20Conte%20Luigi%20Tarino%207%2FD%2C%20Torino" target="_blank" rel="noopener noreferrer">Leggi su Google Maps <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <div class="rating-label flex flex-wrap items-center gap-3"><span aria-hidden="true">★★★★★</span><span>43 recensioni su Google</span></div>
+            <a class="inline-link" href="https://www.google.com/maps/place/Albedo+-+Tapas+Bar/@45.0710833,7.695388,17z/data=!4m8!3m7!1s0x47886d75a3fa6a07:0xbfac0077d982ae73!8m2!3d45.0710833!4d7.695388!9m1!1b1!16s%2Fg%2F11ntb49zsn" target="_blank" rel="noopener noreferrer">Leggi su Google Maps <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a>
           </div>
 
-          <div class="review-panel" data-reveal data-carousel aria-label="Cosa si apprezza da Albedo">
-            <div class="review-label flex items-center justify-between gap-3"><span class="eyebrow">COSA SI APPREZZA</span><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg></div>
+          <div class="review-panel" data-reveal data-carousel aria-label="Recensioni Google di Albedo">
             <div class="review-slides" data-slides aria-live="polite" aria-atomic="true">
-              <article class="review-slide">
-                <h3>La fantasia nelle tapas.</h3>
-                <p>Piattini originali e gustosi da far girare tra gli amici. Il gazpacho è tra i più apprezzati.</p>
+              <article class="review-slide" data-tilt>
+                <header class="review-card-head"><span class="review-avatar avatar-rose" aria-hidden="true">GB</span><h3>Giorgia Balsà</h3><span class="review-badge">Recensione Google</span></header>
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 stelle su 5</span></p>
+                <blockquote>Tra le tapas insolite, Giorgia cita «il crostino con i friggitelli e il gazpacho».</blockquote>
               </article>
-              <article class="review-slide">
-                <h3>La cura nel bicchiere.</h3>
-                <p>Cocktail ricercati e una selezione di vini, con un rapporto qualità-prezzo che sorprende.</p>
+              <article class="review-slide" data-tilt>
+                <header class="review-card-head"><span class="review-avatar avatar-gold" aria-hidden="true">KL</span><h3>Katia Lucci</h3><span class="review-badge">Recensione Google</span></header>
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 stelle su 5</span></p>
+                <blockquote>«[…] si percepisce lo studio dietro ogni drink e tapas […]»</blockquote>
               </article>
-              <article class="review-slide">
-                <h3>L’accoglienza.</h3>
-                <p>Un’atmosfera giovane e rilassata, con la stessa cura al tavolo e al bancone.</p>
+              <article class="review-slide" data-tilt>
+                <header class="review-card-head"><span class="review-avatar avatar-green" aria-hidden="true">RC</span><h3>Roberto C.</h3><span class="review-badge">Recensione Google</span></header>
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 stelle su 5</span></p>
+                <blockquote>Dopo aver apprezzato tapas e drink, Roberto racconta che «ti senti sempre il benvenuto».</blockquote>
               </article>
             </div>
             <div class="review-footer flex items-center justify-between gap-3">
-              <span class="review-source">Sintesi dei temi delle recensioni</span>
               <div class="review-controls flex items-center gap-2" data-review-controls hidden>
                 <button class="circle-button previous" type="button" data-review-step="-1" aria-label="Scheda precedente"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
                 <span class="review-position" data-review-position aria-hidden="true">01 / 03</span>
@@ -249,20 +303,12 @@
         </div>
         <div class="visit-grid grid gap-4">
           <div class="address-card">
-            <svg class="address-art" viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <pattern id="street-grid" width="67" height="67" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
-                  <path d="M0 1h67M1 0v67" fill="none" stroke="currentColor" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect width="500" height="400" fill="url(#street-grid)"/>
-              <path d="M282-30c-35 100 89 152 85 242-3 72-73 131-36 216" fill="none" stroke="#e9a5ba" stroke-width="22" opacity=".25"/>
-              <circle cx="342" cy="124" r="48" fill="none" stroke="#edb2c7" stroke-dasharray="2 5"/>
-              <use href="#i-spark" x="314" y="96" width="56" height="56" fill="#edb2c7"/>
-            </svg>
+            <div class="address-map">
+              <iframe title="Google Maps · Albedo Tapas Bar a Torino" src="https://maps.google.com/maps?q=Albedo%20Tapas%20Bar%20Via%20Conte%20Luigi%20Tarino%207%2FD%20Torino&amp;output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
             <div class="address-content">
-              <span class="eyebrow">TORINO <span aria-hidden="true">/</span> VANCHIGLIA</span>
-              <address>Via Conte Luigi<br>Tarino, 7/D <small>10124 Torino TO</small></address>
+              <ul class="map-badges" aria-label="Nel quartiere"><li>📍 Cuore di Vanchiglia</li><li>🚶 A 5 min dalla Mole e Piazza Santa Giulia</li></ul>
+              <address>Via Conte Luigi Tarino, 7/D <small>10124 Torino TO</small></address>
               <div class="address-actions flex flex-wrap items-center gap-3">
                 <a class="button button-pink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Albedo%20Tapas%20Bar%2C%20Via%20Conte%20Luigi%20Tarino%207%2FD%2C%20Torino" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Indicazioni <svg class="icon button-arrow" aria-hidden="true"><use href="#i-up-right"/></svg></a>
                 <a class="phone-link" href="tel:+393421420260">+39 342 142 0260</a>
@@ -307,8 +353,43 @@
   </footer>
 
   <aside class="quick-actions flex items-center gap-2" aria-label="Prenotazioni e social">
-    <a class="button button-pink" href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Prenota su WhatsApp</a>
+    <a class="button button-pink" data-booking-open href="https://wa.me/393421420260?text=Ciao%20Albedo%21%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Prenota su WhatsApp</a>
     <a class="quick-instagram" href="https://www.instagram.com/albedo.tapasbar/" target="_blank" rel="noopener noreferrer" aria-label="Albedo su Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
   </aside>
+  </div>
+
+  <dialog class="booking-dialog" aria-labelledby="booking-title" data-booking>
+    <form class="booking-close" method="dialog">
+      <button type="submit" aria-label="Chiudi la prenotazione" autofocus>×</button>
+    </form>
+    <p class="eyebrow"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> PRENOTA DA ALBEDO</p>
+    <h2 id="booking-title">Ti teniamo <em>un posto?</em></h2>
+    <p class="booking-intro">Scegli come vuoi passare. La disponibilità si conferma su WhatsApp.</p>
+    <form class="booking-options" data-booking-form>
+      <fieldset>
+        <legend>Momento</legend>
+        <div class="booking-chips">
+          <label><input type="radio" name="occasion" value="aperitivo" checked><span>Aperitivo &amp; Cena <small>17:00+</small></span></label>
+          <label><input type="radio" name="occasion" value="brunch"><span>Sunday Brunch <small>Dom 11:30–15:00</small></span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Ospiti</legend>
+        <div class="booking-chips">
+          <label><input type="radio" name="party" value="2 persone" checked><span>2 persone</span></label>
+          <label><input type="radio" name="party" value="3–4 persone"><span>3–4 persone</span></label>
+          <label><input type="radio" name="party" value="5 o più persone"><span>5+ persone</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Preferenza</legend>
+        <div class="booking-chips">
+          <label><input type="radio" name="seating" value="un tavolo" checked><span>Tavolo</span></label>
+          <label><input type="radio" name="seating" value="un posto al bancone"><span>Bancone</span></label>
+        </div>
+      </fieldset>
+    </form>
+    <a class="button button-pink booking-send" data-booking-send href="https://wa.me/393421420260" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Invia su WhatsApp <svg class="icon button-arrow" aria-hidden="true"><use href="#i-up-right"/></svg></a>
+  </dialog>
 </body>
 </html>

@@ -4,6 +4,44 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 const precisePointer = matchMedia("(hover: hover) and (pointer: fine)");
 const pad = (number) => String(number).padStart(2, "0");
 
+function initIntro() {
+  if (reducedMotion.matches || location.hash || scrollY > 0) return;
+  try {
+    if (sessionStorage.getItem("albedo-intro")) return;
+    sessionStorage.setItem("albedo-intro", "1");
+  } catch {
+    // The intro can still run when storage is unavailable.
+  }
+
+  const intro = document.querySelector("[data-intro]");
+  const stage = document.querySelector("[data-site-stage]");
+  const skip = intro.querySelector("[data-intro-skip]");
+  const root = document.documentElement;
+
+  function finish() {
+    clearTimeout(opening);
+    clearTimeout(end);
+    reducedMotion.removeEventListener("change", finish);
+    intro.hidden = true;
+    root.classList.remove("intro-running", "intro-opening");
+    stage.inert = false;
+    document.getElementById("hero-title").focus({ preventScroll: true });
+  }
+
+  const opening = setTimeout(() => root.classList.add("intro-opening"), 1300);
+  const end = setTimeout(finish, 1800);
+  root.classList.add("intro-running");
+  stage.inert = true;
+  intro.hidden = false;
+  skip.focus({ preventScroll: true });
+  skip.addEventListener("click", finish, { once: true });
+  intro.addEventListener("keydown", (event) => {
+    if (event.key === "Tab") event.preventDefault();
+    if (event.key === "Escape") finish();
+  });
+  reducedMotion.addEventListener("change", finish, { once: true });
+}
+
 function clockMinutes(clock) {
   const [hour, minute] = clock.split(":").map(Number);
   return hour * 60 + minute;
@@ -57,7 +95,18 @@ function initHours() {
     for (const { row } of schedule) {
       const active = row === today.row;
       row.classList.toggle("is-today", active);
-      row.querySelector(".today-label").hidden = !active;
+      const todayLabel = row.querySelector(".today-label");
+      todayLabel.hidden = !active;
+      if (active) {
+        const state = isOpen ? "Aperto ora"
+          : today.starts !== null && minute < today.starts ? `Apre alle ${today.opens}`
+          : "Chiuso";
+        const text = `Oggi • ${state}`;
+        row.dataset.open = String(isOpen);
+        if (todayLabel.textContent !== text) todayLabel.textContent = text;
+      } else {
+        delete row.dataset.open;
+      }
     }
   }
 
@@ -113,6 +162,68 @@ function initFilters() {
       document.getElementById("brunch").scrollIntoView();
     }
   });
+}
+
+function initMenu() {
+  const list = document.querySelector("[data-menu-tabs]");
+  const tabs = [...list.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+
+  function select(index, animate = false) {
+    for (const [number, tab] of tabs.entries()) {
+      const active = number === index;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      panels[number].hidden = !active;
+      panels[number].classList.toggle("is-entering", active && animate);
+    }
+  }
+
+  for (const [index, tab] of tabs.entries()) {
+    tab.addEventListener("click", () => select(index, true));
+    tab.addEventListener("keydown", (event) => {
+      let next;
+      if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+      if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = tabs.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      select(next, true);
+      tabs[next].focus();
+    });
+  }
+  select(0);
+  list.hidden = false;
+}
+
+function initBooking() {
+  const dialog = document.querySelector("[data-booking]");
+  if (typeof dialog.showModal !== "function") return;
+  const form = dialog.querySelector("[data-booking-form]");
+  const send = dialog.querySelector("[data-booking-send]");
+
+  function updateLink() {
+    const choices = new FormData(form);
+    const occasion = choices.get("occasion") === "brunch"
+      ? "il Sunday Brunch (domenica, 11:30–15:00)"
+      : "Aperitivo & Cena (dalle 17:00)";
+    const message = `Ciao Albedo! Vorrei prenotare ${choices.get("seating")} per ${choices.get("party")} per ${occasion}. Avete disponibilità? Grazie!`;
+    send.href = `https://wa.me/393421420260?text=${encodeURIComponent(message)}`;
+  }
+
+  form.addEventListener("change", updateLink);
+  for (const trigger of document.querySelectorAll("[data-booking-open]")) {
+    trigger.setAttribute("aria-haspopup", "dialog");
+    trigger.addEventListener("click", (event) => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const occasion = trigger.dataset.bookingOpen || "aperitivo";
+      form.elements.namedItem("occasion").value = occasion;
+      updateLink();
+      dialog.showModal();
+    });
+  }
 }
 
 function initCarousel() {
@@ -266,8 +377,11 @@ function initPointerEffects() {
   }
 }
 
+initIntro();
 initHours();
 initFilters();
+initMenu();
+initBooking();
 initCarousel();
 initMarquee();
 initReveals();
