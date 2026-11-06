@@ -1,0 +1,15 @@
+{
+  "name": "albedo-tapas-bar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Albedo Tapas Bar, Vanchiglia · Torino",
+  "type": "module",
+  "scripts": {
+    "build": "tailwindcss -i ./src/site.css -o ./assets/site.css --minify",
+    "dev:css": "tailwindcss -i ./src/site.css -o ./assets/site.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
