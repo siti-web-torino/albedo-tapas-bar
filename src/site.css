@@ -240,9 +240,13 @@ button { cursor: pointer; }
 .hero-kicker .spark { width: 1.12rem; height: 1.12rem; }
 
 .hero-title {
-  margin: clamp(1.3rem, 3vw, 2.1rem) 0 1.45rem;
   font: 700 clamp(3rem, 6.42vw, 6.8rem)/.98 var(--display);
   letter-spacing: -.087em;
+}
+
+.hero-title-lines {
+  display: block;
+  margin: clamp(1.3rem, 3vw, 2.1rem) 0 1.45rem;
 }
 
 .hero-line { display: block; overflow: hidden; padding: 0 .075em .14em 0; }
@@ -684,6 +688,49 @@ button { cursor: pointer; }
 
 .services li .icon { transition: transform .25s ease; }
 .services li:hover .icon { transform: rotate(-8deg) scale(1.18); }
+.faq { border-top: 1px solid var(--line); }
+.faq-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; }
+.faq .section-title { font-size: clamp(2.8rem, 5vw, 5rem); }
+.faq-list { display: grid; gap: .65rem; }
+.faq-list details { border: 1px solid var(--line); border-radius: .85rem; background: var(--paper); }
+.faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.6rem;
+  padding: .85rem clamp(1rem, 2.2vw, 1.45rem);
+  list-style: none;
+  cursor: pointer;
+  color: var(--wine);
+  font: 700 1.05rem/1.35 var(--display);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "";
+  flex: none;
+  width: .5rem;
+  height: .5rem;
+  margin: -.18rem .2rem 0 0;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  rotate: 45deg;
+  transition: rotate .26s ease;
+}
+.faq-list details[open] summary::after { rotate: 225deg; }
+.faq-answer { padding: 0 clamp(1rem, 2.2vw, 1.45rem) 1.1rem; color: var(--muted); }
+.faq-answer a { color: var(--wine); text-decoration: underline; text-underline-offset: .18em; font-weight: 700; }
+.faq-list details[open] .faq-answer { animation: fade-up .3s ease-out both; }
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  .faq-list details { interpolate-size: allow-keywords; }
+  .faq-list details::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition: block-size .3s ease, content-visibility .3s allow-discrete;
+  }
+  .faq-list details[open]::details-content { block-size: auto; }
+}
+
 .site-footer { background: var(--wine); color: var(--cream); }
 .footer-inner { min-height: 9.3rem; padding-block: 1.5rem 4.8rem; }
 .footer-inner .wordmark { width: clamp(6rem, 11vw, 10rem); }
@@ -776,6 +823,7 @@ button { cursor: pointer; }
   .section-description { padding: 0; }
   .reviews-layout { grid-template-columns: 1fr; }
   .visit-grid { grid-template-columns: 1fr; }
+  .faq-layout { grid-template-columns: 1fr; }
   .address-card { min-height: 20rem; }
 }
 
@@ -785,7 +833,7 @@ button { cursor: pointer; }
   .site-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; }
   .header-book { display: none; }
   .hero-inner { padding-top: 2.35rem; }
-  .hero-title { margin-block: 1.15rem 1rem; }
+  .hero-title-lines { margin-block: 1.15rem 1rem; }
   .hero-description { font-size: 1rem; }
   .hero-actions { margin-top: 1.3rem; }
   .open-badge { margin-top: 1.1rem; }

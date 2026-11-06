@@ -4,12 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#63001f">
-  <meta name="description" content="Tapas creative, cocktail e calici a Vanchiglia, Torino. Scopri il Sunday Brunch di Albedo e prenota un tavolo su WhatsApp.">
-  <meta property="og:type" content="website">
+  <title>Albedo Tapas Bar Torino | Tapas, Cocktail &amp; Sunday Brunch a Vanchiglia</title>
+  <meta name="description" content="Albedo è il tapas e cocktail bar nel cuore di Vanchiglia a Torino (Via Conte Luigi Tarino 7/D). Piccoli piatti da condividere, gazpacho, signature drink, vini e Sunday Brunch ogni domenica dalle 11:30. Valutato 5.0★ su Google. Prenota su WhatsApp.">
+  <link rel="canonical" href="https://albedo-tapas-bar.vercel.app/">
+  <meta name="geo.region" content="IT-TO">
+  <meta name="geo.placename" content="Torino, Vanchiglia">
+  <meta name="geo.position" content="45.0710833;7.695388">
+  <meta name="ICBM" content="45.0710833, 7.695388">
+  <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:title" content="Albedo · Tapas Bar a Vanchiglia, Torino">
-  <meta property="og:description" content="Piccoli piatti, grandi serate. Tapas, cocktail, vini e brunch della domenica in Via Conte Luigi Tarino 7/D.">
-  <title>Albedo · Tapas Bar a Vanchiglia, Torino</title>
+  <meta property="og:url" content="https://albedo-tapas-bar.vercel.app/">
+  <meta property="og:title" content="Albedo Tapas Bar Torino | Tapas, Cocktail &amp; Sunday Brunch a Vanchiglia">
+  <meta property="og:description" content="Tapas da condividere, cocktail, vini e Sunday Brunch dalle 11:30. Ci trovi in Via Conte Luigi Tarino 7/D, a Vanchiglia. Prenota su WhatsApp.">
+  <meta property="og:image" content="https://albedo-tapas-bar.vercel.app/assets/tavolo.jpg">
+  <meta property="og:image:alt" content="Due cocktail ambrati e un piatto di tapas su una tovaglia bordeaux.">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./assets/site.css">
@@ -17,25 +25,208 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Albedo - Tapas Bar",
-      "description": "Tapas, cocktail, vini e brunch della domenica a Vanchiglia, Torino.",
-      "servesCuisine": "Tapas",
-      "telephone": "+393421420260",
-      "acceptsReservations": "https://wa.me/393421420260",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Via Conte Luigi Tarino 7/D",
-        "addressLocality": "Torino",
-        "addressRegion": "TO",
-        "postalCode": "10124",
-        "addressCountry": "IT"
-      },
-      "sameAs": ["https://www.instagram.com/albedo.tapasbar/"],
-      "openingHoursSpecification": [
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Wednesday", "Thursday"], "opens": "17:00", "closes": "00:00"},
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "17:00", "closes": "00:30"},
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:30", "closes": "23:00"}
+      "@graph": [
+        {
+          "@type": [
+            "BarOrPub",
+            "Restaurant"
+          ],
+          "@id": "https://albedo-tapas-bar.vercel.app/#albedo",
+          "name": "Albedo - Tapas Bar",
+          "url": "https://albedo-tapas-bar.vercel.app/",
+          "description": "Tapas, cocktail, vini e Sunday Brunch nel quartiere Vanchiglia a Torino.",
+          "image": "https://albedo-tapas-bar.vercel.app/assets/tavolo.jpg",
+          "telephone": "+393421420260",
+          "priceRange": "€€",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Conte Luigi Tarino, 7/D",
+            "addressLocality": "Torino",
+            "addressRegion": "Piemonte",
+            "postalCode": "10124",
+            "addressCountry": "IT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.0710833,
+            "longitude": 7.695388
+          },
+          "sameAs": [
+            "https://www.instagram.com/albedo.tapasbar/"
+          ],
+          "servesCuisine": [
+            "Tapas",
+            "Spagnola",
+            "Mediterranea",
+            "Cocktail Bar",
+            "Brunch"
+          ],
+          "acceptsReservations": "https://wa.me/393421420260",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "https://schema.org/Monday",
+                "https://schema.org/Wednesday",
+                "https://schema.org/Thursday"
+              ],
+              "opens": "17:00",
+              "closes": "00:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "https://schema.org/Friday",
+                "https://schema.org/Saturday"
+              ],
+              "opens": "17:00",
+              "closes": "00:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "11:30",
+              "closes": "23:00"
+            }
+          ],
+          "hasMenu": {
+            "@type": "Menu",
+            "@id": "https://albedo-tapas-bar.vercel.app/#menu",
+            "url": "https://albedo-tapas-bar.vercel.app/#menu",
+            "name": "Cosa trovi da Albedo",
+            "inLanguage": "it",
+            "hasMenuSection": [
+              {
+                "@type": "MenuSection",
+                "name": "Tapas & Small Plates",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Crocchette dorate e sfizi caldi"
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Tapas creative del giorno"
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Dolci fatti in casa"
+                  }
+                ]
+              },
+              {
+                "@type": "MenuSection",
+                "name": "Gazpacho e Proposte Fresche",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Il nostro gazpacho"
+                  }
+                ]
+              },
+              {
+                "@type": "MenuSection",
+                "name": "Signature Cocktail & Vini",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Signature cocktail"
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Vini al calice e in bottiglia"
+                  }
+                ]
+              },
+              {
+                "@type": "MenuSection",
+                "name": "Sunday Brunch (Domenica 11:30-15:00)",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Toast e proposte salate"
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Piattini e dolci della casa"
+                  }
+                ]
+              }
+            ]
+          },
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Pet-friendly, cani ammessi all’interno e all’esterno",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Accessibile in sedia a rotelle",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "LGBTQ+ friendly",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Servizio al tavolo e al bancone",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Asporto disponibile",
+              "value": true
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://albedo-tapas-bar.vercel.app/#faq",
+          "url": "https://albedo-tapas-bar.vercel.app/#faq",
+          "inLanguage": "it",
+          "about": {
+            "@id": "https://albedo-tapas-bar.vercel.app/#albedo"
+          },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Dove si trova Albedo Tapas Bar a Torino e quali sono gli orari?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Albedo si trova in Via Conte Luigi Tarino 7/D, 10124 Torino, in Vanchiglia, vicino a Piazza Santa Giulia e alla Mole Antonelliana. Apre lunedì, mercoledì e giovedì dalle 17:00 a mezzanotte, venerdì e sabato dalle 17:00 alle 00:30 e domenica con orario continuato dalle 11:30 alle 23:00. Il martedì è chiuso."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cosa comprende il Sunday Brunch della domenica da Albedo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Il Sunday Brunch si tiene ogni domenica dalle 11:30 alle 15:00. Trovi piatti da brunch, toast e altre proposte salate, dolci artigianali, tapas e drink in un’atmosfera rilassata."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Come posso prenotare un tavolo o un posto al bancone?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Scrivi su WhatsApp al +39 342 142 0260 per chiedere un tavolo o un posto al bancone, sia per l’aperitivo e la cena sia per il brunch della domenica. Il locale ti confermerà la disponibilità in chat."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Il locale è pet-friendly e accessibile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sì. I cani sono i benvenuti sia dentro sia fuori e il locale è accessibile in sedia a rotelle. Puoi scegliere un posto al bancone in coppia o un tavolo per un gruppo di amici."
+              }
+            }
+          ]
+        }
       ]
     }
   </script>
@@ -95,10 +286,12 @@
     <section class="hero" aria-labelledby="hero-title" data-spotlight>
       <div class="frame hero-inner grid">
         <div class="hero-copy">
-          <p class="eyebrow hero-kicker"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> TAPAS BAR <span>·</span> VANCHIGLIA, TORINO</p>
           <h1 class="hero-title" id="hero-title" tabindex="-1">
-            <span class="hero-line"><span>Piccoli piatti.</span></span>
-            <span class="hero-line hero-line-accent"><em>Grandi serate.</em></span>
+            <span class="eyebrow hero-kicker"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> TAPAS BAR <span>·</span> VANCHIGLIA, TORINO</span>
+            <span class="hero-title-lines">
+              <span class="hero-line"><span>Piccoli piatti.</span></span>
+              <span class="hero-line hero-line-accent"><em>Grandi serate.</em></span>
+            </span>
           </h1>
           <p class="hero-description">Tapas da passarsi, cocktail da sorseggiare e calici da riempire. Ci trovi a Vanchiglia, a due passi dalla Mole.</p>
           <div class="hero-actions flex flex-wrap items-center gap-3">
@@ -151,7 +344,7 @@
             <p class="eyebrow section-kicker"><span>01</span> L’ESPERIENZA</p>
             <h2 class="section-title" id="experience-title">Il bello è <em>condividere.</em></h2>
           </div>
-          <p class="section-description">Ordina un po’ di tutto e fai girare i piattini. Al bancone o al tavolo, ci sono sempre un calice da abbinare e un dolce artigianale per finire.</p>
+          <p class="section-description">Tapas bar, cocktail e Sunday Brunch a Vanchiglia, Torino. Ordina un po’ di tutto e fai girare i piattini, con un calice da abbinare e un dolce artigianale per finire.</p>
         </div>
 
         <div class="filter-list flex flex-wrap items-center gap-2" role="group" aria-label="Filtra l’esperienza" data-filters hidden>
@@ -299,7 +492,7 @@
             <p class="eyebrow section-kicker"><span>03</span> VIENI A TROVARCI</p>
             <h2 class="section-title" id="visit-title">Ci vediamo <em>da Albedo.</em></h2>
           </div>
-          <p class="section-description">Siamo in Via Conte Luigi Tarino, nel quartiere Vanchiglia. Per un tavolo, scrivici direttamente su WhatsApp.</p>
+          <p class="section-description">Siamo in Via Conte Luigi Tarino 7/D, nel cuore del quartiere Vanchiglia a Torino, a pochi passi da Piazza Santa Giulia, dalla Mole Antonelliana e dal Campus Luigi Einaudi.</p>
         </div>
         <div class="visit-grid grid gap-4">
           <div class="address-card">
@@ -340,6 +533,32 @@
           <li><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg><span>Al tavolo e da asporto</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><span>LGBTQ+ friendly</span></li>
         </ul>
+      </div>
+    </section>
+    <section class="faq section-space" id="faq" aria-labelledby="faq-title">
+      <div class="frame faq-layout">
+        <div>
+          <p class="eyebrow section-kicker"><span>04</span> PRIMA DI PASSARE</p>
+          <h2 class="section-title" id="faq-title">Domande <em>frequenti.</em></h2>
+        </div>
+        <div class="faq-list">
+          <details name="albedo-faq">
+            <summary>Dove si trova Albedo Tapas Bar a Torino e quali sono gli orari?</summary>
+            <div class="faq-answer"><p>Albedo si trova in Via Conte Luigi Tarino 7/D, 10124 Torino, in Vanchiglia, vicino a Piazza Santa Giulia e alla Mole Antonelliana. Apre lunedì, mercoledì e giovedì dalle 17:00 a mezzanotte, venerdì e sabato dalle 17:00 alle 00:30 e domenica con orario continuato dalle 11:30 alle 23:00. Il martedì è chiuso.</p></div>
+          </details>
+          <details name="albedo-faq">
+            <summary>Cosa comprende il Sunday Brunch della domenica da Albedo?</summary>
+            <div class="faq-answer"><p>Il Sunday Brunch si tiene ogni domenica dalle 11:30 alle 15:00. Trovi piatti da brunch, toast e altre proposte salate, dolci artigianali, tapas e drink in un’atmosfera rilassata.</p></div>
+          </details>
+          <details name="albedo-faq">
+            <summary>Come posso prenotare un tavolo o un posto al bancone?</summary>
+            <div class="faq-answer"><p>Scrivi su WhatsApp al <a href="https://wa.me/393421420260" target="_blank" rel="noopener noreferrer" data-booking-open>+39 342 142 0260</a> per chiedere un tavolo o un posto al bancone, sia per l’aperitivo e la cena sia per il brunch della domenica. Il locale ti confermerà la disponibilità in chat.</p></div>
+          </details>
+          <details name="albedo-faq">
+            <summary>Il locale è pet-friendly e accessibile?</summary>
+            <div class="faq-answer"><p>Sì. I cani sono i benvenuti sia dentro sia fuori e il locale è accessibile in sedia a rotelle. Puoi scegliere un posto al bancone in coppia o un tavolo per un gruppo di amici.</p></div>
+          </details>
+        </div>
       </div>
     </section>
   </main>
